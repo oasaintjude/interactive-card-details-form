@@ -28,34 +28,46 @@
         </div>
 
         <!-- CARD DETAILS -->
-        <div class="cardDetails">
+        <div id="cardDetails">
             <div class="name">
                 <label for="cardHolderName">CARDHOLDER NAME</label>
-                <input type="text" id="holdername" minlength="5" maxlength="30" pattern="^[a-zA-Z]+$" placeholder="e.g. Jane Appleseed" required>
-                <span role="alert" id="error" aria-hidden="true">Invalid input, be sure you've filled this correctly.</span>
+                <input type="text" id="holdername" minlength="5" maxlength="32" pattern="^[a-zA-Z]+$" placeholder="e.g. Jane Appleseed" required>
+                <!-- <span role="alert" id="error" aria-hidden="true">Invalid input, be sure you've filled this correctly.</span> -->
+                <span role="alert" id="errorName" class="error" aria-hidden="true">Please be sure you've filled this correctly.</span>
             </div>
 
             <div class="number">
                 <label for="cardNumber">CARD NUMBER</label>
                 <input type="text" id="textCardNumber" minlength="16" maxlength="19" name="card-number" placeholder="e.g. 1234 5678 9123 0000" pattern="^[0-9]+$" required>
-                <span role="alert" id="error" aria-hidden="true">Wrong format, numbers only!</span>
+                <!-- <span role="alert" id="error" aria-hidden="true">Wrong format, numbers only!</span> -->
+                <span role="alert" id="errorNumber" class="error" aria-hidden="true">Please enter the 16digits on your card correctly.</span>
             </div>
 
             <div class="expDateAndCVC">
                 <div class="expDate">
                     <label for="expriyDate">EXP. DATE(MM/YY)</label>
                     <input type="month" name="expriyDate" id="expriyDate" pattern="" required>
-                    <span role="alert" id="error" aria-hidden="true">Can't be blank!</span>
+                    <!-- <span role="alert" id="error" aria-hidden="true">Can't be blank!</span> -->
+                    <span role="alert" id="errorExpiry" class="error" aria-hidden="true">Can't be blank!</span>
                 </div>
     
                 <div class="cvc">
                     <label for="CVC" class="eD">CVC</label>
                     <input type="password" minlength="3" maxlength="3" id="cvc" placeholder="e.g. 123" required>
-                    <span role="alert" id="error" aria-hidden="true" class="eD">Can't be blank!</span>
+                    <!-- <span role="alert" id="error" aria-hidden="true">Can't be blank!</span> -->
+                    <span role="alert" id="errorCVC" class="error eD" aria-hidden="true">Can't be blank!</span>
                 </div>
             </div>
 
             <button type="submit" id="submit" onclick="submit()">Confirm</button>
+
+            <!-- COMPLETE STATE -->
+            <div id="complete">
+                <img src="images/icon-complete.svg" alt="complete">
+                <h1>THANK YOU!</h1>
+                <p>We've added your card details</p>
+                <button type="submit" id="continue" onclick="moveOn()">Continue</button>
+            </div>
         </div>
     </div>
 

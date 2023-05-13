@@ -78,7 +78,7 @@
 }
 
 /* CARD DETAILS */
-.cardDetails {
+#cardDetails {
     display: flex;
     flex-direction: column;
     margin-left: 28%;
@@ -157,14 +157,40 @@ button {
     padding-left: 44px;
 }
 
-#error {
+/* #error {
+    display: none;
+    font-size: 0.8em;
+    color: var(--Red);
+} */
+.error {
     display: none;
     font-size: 0.8em;
     color: var(--Red);
 }
-#error.visible {
+/* #error.visible {
     display: block;
+} */
+
+
+/* COMPLETE STATE */
+#complete {
+    display: none;
+    flex-direction: column;
+    align-items: center;
 }
-input.invalid {
-    border-color: var(--Red);
+
+#complete img {
+    padding-bottom: 22px;
 }
+#complete h1 {
+    padding-bottom: 8px;
+}
+#complete p {
+    padding-bottom: 30px;
+}
+
+
+
+/* <span role="alert" id="error" aria-hidden="true">Invalid input, be sure you've filled this correctly.</span>
+<span role="alert" id="error" aria-hidden="true">Wrong format, numbers only!</span>
+<span role="alert" id="error" aria-hidden="true">Can't be blank!</span> */
