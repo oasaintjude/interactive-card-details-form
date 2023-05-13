@@ -13,6 +13,12 @@
     box-sizing: border-box;
 }
 
+.design {
+    display: flex;
+    align-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
 .bg-main {
     background-image: url("images/bg-main-desktop.png");
     background-repeat: no-repeat;
@@ -49,10 +55,10 @@
     font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Card Details */
+/* IT's Details */
 #cardNumber {
-    padding-top: 85px;
-    font-size: 30px;
+    padding-top: 90px;
+    font-size: 32px;
     letter-spacing: 2px;
     font-weight: 400;
 }
@@ -61,11 +67,104 @@
     align-items: center;
     padding-top: 15px;
 }
-#expriyDate {
-    padding-left: 180px;
+#cardExpriyDate {
+    padding-left: 220px;
 }
-#cvc {
+#cardCVC {
     position: relative;
     top: 45%;
     left: 80%;
+    width: 20%;
+}
+
+/* CARD DETAILS */
+.cardDetails {
+    display: flex;
+    flex-direction: column;
+    margin-left: 28%;
+}
+
+input {
+    width: 25vw;
+    height: 5vh;
+    border-radius: 8px;
+    padding: 15px;
+    border: 2px solid var(--Light-grayish-violet);
+    background-color: var(--White);
+    font-family: 'Space Grotesk', sans-serif;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+input::placeholder {
+    color: var(--Light-grayish-violet);
+}
+input:focus {
+    outline: none;
+    border: 2px solid transparent;
+    border-image: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) 1;
+    color: var(--Very-dark-violet);
+}
+
+label {
+    color: var(--Very-dark-violet);
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+button {
+    cursor: pointer;
+    height: 45px;
+    width: 25vw;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--Very-dark-violet);
+    color: var(--White);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+}
+.number {
+    display: flex;
+    flex-direction: column;
+}
+
+.expDate {
+    display: flex;
+    flex-direction: column;
+}
+#expriyDate {
+    width: 22vh;
+}
+
+.cvc {
+    display: flex;
+    flex-direction: column;
+}
+#cvc {
+    width: 22vh;
+    margin-left: 42px;
+}
+.expDateAndCVC {
+    padding-bottom: 20px;
+    display: flex;
+}
+.eD {
+    padding-left: 44px;
+}
+
+#error {
+    display: none;
+    font-size: 0.8em;
+    color: var(--Red);
+}
+#error.visible {
+    display: block;
+}
+input.invalid {
+    border-color: var(--Red);
 }
