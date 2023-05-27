@@ -18,6 +18,9 @@
     align-items: center;
     font-family: 'Space Grotesk', sans-serif;
 }
+.smaller-screen-sizes {
+    display: none;
+}
 
 .bg-main {
     background-image: url("images/bg-main-desktop.png");
@@ -58,8 +61,8 @@
 /* IT's Details */
 #cardNumber {
     padding-top: 90px;
-    font-size: 32px;
-    letter-spacing: 2px;
+    font-size: 29px;
+    letter-spacing: 1px;
     font-weight: 400;
 }
 .nameAndExpiryDate {
@@ -68,7 +71,7 @@
     padding-top: 15px;
 }
 #cardExpriyDate {
-    padding-left: 220px;
+    padding-left: 150px;
 }
 #cardCVC {
     position: relative;
@@ -138,7 +141,7 @@ button {
     flex-direction: column;
 }
 #expriyDate {
-    width: 22vh;
+    width: 80%;
 }
 
 .cvc {
@@ -146,15 +149,15 @@ button {
     flex-direction: column;
 }
 #cvc {
-    width: 22vh;
-    margin-left: 42px;
+    width: 52%;
+    margin-left: 25px;
 }
 .expDateAndCVC {
     padding-bottom: 20px;
     display: flex;
 }
 .eD {
-    padding-left: 44px;
+    padding-left: 30px;
 }
 
 /* #error {
@@ -188,6 +191,29 @@ button {
 #complete p {
     padding-bottom: 30px;
 }
+
+
+/* RESPONSIVE */
+@media screen and (min-width: 1px) and (max-width: 1150px) {
+    .smaller-screen-sizes {
+        display: block;
+        text-align: center;
+        padding-top: 150px;
+        font-size: 25px;
+    }
+    .design {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 
