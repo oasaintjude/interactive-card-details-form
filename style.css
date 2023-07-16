@@ -3,25 +3,22 @@
     --Light-grayish-violet: hsl(270, 3%, 87%);
     --Dark-grayish-violet: hsl(279, 6%, 55%);
     --Very-dark-violet: hsl(278, 68%, 11%);
-    --Linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%); /* (active input border)*/
-    --Red: hsl(0, 100%, 66%); /*  (input errors) */
+    --Linear-gradient: hsl(249, 99%, 64%), hsl(278, 94%, 30%); 
+    --Red: hsl(0, 100%, 66%); 
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
+/* DESIGN */
 .design {
     display: flex;
     align-items: center;
     font-family: 'Space Grotesk', sans-serif;
 }
-.smaller-screen-sizes {
-    display: none;
-}
-
 .bg-main {
     background-image: url("images/bg-main-desktop.png");
     background-repeat: no-repeat;
@@ -41,7 +38,7 @@
     background-size: 100% 100%;
     width: 100%;
     height: 35vh;
-    padding: 20px;
+    padding: 30px;
     color: white;
     font-family: 'Space Grotesk', sans-serif;
 }
@@ -57,21 +54,24 @@
     color: white;
     font-family: 'Space Grotesk', sans-serif;
 }
-
 /* IT's Details */
-#cardNumber {
-    padding-top: 90px;
-    font-size: 29px;
+.card-front-details {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+#card-info-number {
+    margin: 75px 0 15px 0;
+    font-size: 2em;
     letter-spacing: 1px;
     font-weight: 400;
 }
-.nameAndExpiryDate {
+.name-and-expiryDate {
     display: flex;
     align-items: center;
-    padding-top: 15px;
-}
-#cardExpriyDate {
-    padding-left: 150px;
+    justify-content: space-between;
+    padding-right: 15px;
 }
 #cardCVC {
     position: relative;
@@ -81,10 +81,11 @@
 }
 
 /* CARD DETAILS */
-#cardDetails {
+#myCardDetails {
     display: flex;
+    /* display: none; */
     flex-direction: column;
-    margin-left: 28%;
+    margin-left: 350px;
 }
 
 input {
@@ -126,60 +127,49 @@ button {
     font-weight: 600;
     letter-spacing: 2px;
 }
-
-.name {
+.cardExpiryAndCVC {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.card-name {
     display: flex;
     flex-direction: column;
 }
-.number {
+.card-number {
     display: flex;
     flex-direction: column;
 }
-
-.expDate {
+.expiry {
     display: flex;
     flex-direction: column;
 }
-#expriyDate {
-    width: 80%;
+.expiry input {
+    width: 5vw;
 }
-
 .cvc {
     display: flex;
     flex-direction: column;
 }
-#cvc {
-    width: 52%;
-    margin-left: 25px;
+.cvc input {
+    width: 13vw;
 }
-.expDateAndCVC {
-    padding-bottom: 20px;
-    display: flex;
-}
-.eD {
-    padding-left: 30px;
-}
-
-/* #error {
-    display: none;
-    font-size: 0.8em;
-    color: var(--Red);
-} */
+/* ERROR */
 .error {
-    display: none;
+    padding-top: 2px;
     font-size: 0.8em;
     color: var(--Red);
 }
-/* #error.visible {
-    display: block;
-} */
 
 
 /* COMPLETE STATE */
 #complete {
     display: none;
+    /* display: flex; */
     flex-direction: column;
     align-items: center;
+    margin-left: 350px;
 }
 
 #complete img {
@@ -191,32 +181,3 @@ button {
 #complete p {
     padding-bottom: 30px;
 }
-
-
-/* RESPONSIVE */
-@media screen and (min-width: 1px) and (max-width: 1150px) {
-    .smaller-screen-sizes {
-        display: block;
-        text-align: center;
-        padding-top: 150px;
-        font-size: 25px;
-    }
-    .design {
-        display: none;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* <span role="alert" id="error" aria-hidden="true">Invalid input, be sure you've filled this correctly.</span>
-<span role="alert" id="error" aria-hidden="true">Wrong format, numbers only!</span>
-<span role="alert" id="error" aria-hidden="true">Can't be blank!</span> */

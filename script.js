@@ -1,144 +1,122 @@
-let cardNumber = document.getElementById("cardNumber");
-let textCardNumber = document.getElementById("textCardNumber");
+// Different Screens
+let complete = document.getElementById("complete")
+let myCardDetails = document.getElementById("myCardDetails")
+// CARD INFO
+let cardInformationNumber = document.getElementById("card-info-number")
+let cardInformationName = document.getElementById("card-info-holderName")
+let cardInformationExpiryDate = document.getElementById("card-info-expriyDate")
+let cardInformationcardCVC = document.getElementById("cardCVC")
 
-let cardHolderName = document.getElementById("cardHolderName");
-let holdername = document.getElementById("holdername");
-
-let cardCVC = document.getElementById("cardCVC")
+// CARD DETAILS
+let cardUserInput = document.getElementById("card-user-input")
+let holderName = document.getElementById("holdername")
+let inputCardNumber = document.getElementById("inputCardNumber")
+let expriyMonth = document.getElementById("expriyMonth")
+let expiryYear = document.getElementById("expiryYear")
 let cvc = document.getElementById("cvc")
 
-let cardExpriyDate = document.getElementById("cardExpriyDate")
-let expriyDate = document.getElementById("expriyDate")
+// ERROR
+let errorNames = document.getElementById("errorNames")
+let errorNumber = document.getElementById("errorNumber")
+let errorExpiry = document.getElementById("errorExpiry")
+let errorCVC = document.getElementById("errorCVC")
 
-const cardDetails = document.getElementById("cardDetails")
-const complete = document.getElementById("complete")
-
-const error = document.getElementById("error")
-
-const errorName = document.getElementById("errorName")
-const errorNumber = document.getElementById("errorNumber")
-const errorExpiry = document.getElementById("errorExpiry")
-const errorCVC = document.getElementById("errorCVC")
-
-
-// // CARD HOLDER NAME FUNCTION
-// holdername.addEventListener("input", function() {
-//     // Get the input value and remove any non-letter, non-space, or non-hyphen characters
-//     let holderCardName = this.value.replace(/[^a-zA-Z\s-]/g, "");
-//     // Set the input value to the cleaned up card number
-//     this.value = holderCardName;
-
-//     if (holdername.value.trim() === '') {
-//         errorName.style.display = "block"
-//       } else {
-//         if (holdername.value.length < 5) {
-//           errorName.style.display = "block"
-//         } else {
-//             errorName.style.display = "none"
-//         }
-//     }
-//   });
-
-// // CARD NUMBER FUNCTION
-// textCardNumber.addEventListener("input", function() {
-//     // Remove any non-digit characters
-//     let textCardNumber = this.value.replace(/\D/g, "");
-//     // Add a space after every 4 digits
-//     textCardNumber = textCardNumber.replace(/(\d{4})/g, "$1 ");
-//     // Trim any leading or trailing spaces
-//     textCardNumber = textCardNumber.trim();
-//     // Set the value of the input to the formatted card number
-//     this.value = textCardNumber;
-
-//     if (textCardNumber.value === ""){
-//         errorNumber.style.display = "block"
-//     } else {
-//         if (textCardNumber.value.length < 19) {
-//             errorNumber.style.display = "block"
-//         } else {
-//             errorNumber.style.display = "none"
-//         }
-//     }
-//   });
-
-// //   CVC FUNCTION
-// cvc.addEventListener("input", function() {
-//     this.value = this.value.replace(/[^0-9]/g, "");
-//     if (cvc.value === "") {
-//         errorCVC.style.display = "block"
-//     } else {
-//         if (cvc.value.length < 3) {
-//             errorCVC.style.display = "block"
-//         } else {
-//             errorCVC.style.display = "none"
-//         }
-//     }
-//   });
-  
-
-// // SUBMIT FUNCTION
-// function submit() {
-//     if (holdername.value.trim() !== "") {
-//         errorName.style.display = "none"
-//     } else {
-//         errorName.style.display = "block"
-//     }
-
-//     if (textCardNumber.value !== "") {
-//         errorNumber.style.display = "none"
-//     } else {
-//         errorNumber.style.display = "block"
-//     }
-
-//     if (expriyDate.value !== "") {
-//         errorExpiry.style.display = "none"
-//     } else {
-//         errorExpiry.style.display = "block"
-//     }
-
-//     if (cvc.value !== "") {
-//         errorCVC.style.display = "none"
-//     } else {
-//         errorCVC.style.display = "block"
-//     }
-
-//     // cardHolderName.textContent = holdername.value
-//     // cardNumber.textContent = textCardNumber.value
-//     // cardCVC.textContent = cvc.value
-//     // cardExpriyDate.textContent = expriyDate.value
-
-//     // if (holdername.value !== "" || textCardNumber)
-
-//     // holdername()
-//     // textCardNumber()
-//     // cvc()
-// }
+// BUTTONS
+let confirm = document.getElementById("confirm")
+let proceed = document.getElementById("continue")
 
 
 
 
-function submit() {
-    textCardNumber.addEventListener("input", function() {
-        // Remove any non-digit characters
-        let textCardNumber = this.value.replace(/\D/g, "");
-        // Add a space after every 4 digits
-        textCardNumber = textCardNumber.replace(/(\d{4})/g, "$1 ");
-        // Trim any leading or trailing spaces
-        textCardNumber = textCardNumber.trim();
-        // Set the value of the input to the formatted card number
-        this.value = textCardNumber;
-    
-        if (textCardNumber.value.length < 19){
-            // errorNumber.style.display = "none"
-            console.log("less than")
+// USER INPUT RESTRICTIONS
+// CARD HOLDER NAME FUNCTION
+holderName.addEventListener("input", function() {
+    let holderName = this.value.replace(/[^a-zA-Z\s-]/g, "");
+    this.value = holderName;
+    errorNames.textContent = ""
+});
+
+// CARD NUMBER FUNCTION
+inputCardNumber.addEventListener("input", function() {
+    let inputCardNumber = this.value.replace(/\D/g, "");
+    inputCardNumber = inputCardNumber.replace(/(\d{4})/g, "$1 ");
+    inputCardNumber = inputCardNumber.trim();
+    this.value = inputCardNumber;
+    errorNumber.textContent = ""
+});
+
+// MONTH FUNCTION
+expriyMonth.addEventListener("input", function() {
+    this.value = this.value.replace(/[^0-9]/g, "");
+    errorExpiry.textContent = ""
+});
+
+// YEAR FUNCTION
+expiryYear.addEventListener("input", function() {
+    this.value = this.value.replace(/[^0-9]/g, "");
+    errorExpiry.textContent = ""
+});
+
+// CVC FUNCTION
+cvc.addEventListener("input", function() {
+    this.value = this.value.replace(/[^0-9]/g, "");
+    errorCVC.textContent = ""
+});
+
+
+// INPUT VALIDATION
+confirm.addEventListener("click", function() {
+    if ((holderName.value.length > 5 || holderName.value.length < 32) && (inputCardNumber.value.length === 19) && (expriyMonth.value.length === 2) && (expiryYear.value.length === 2) && (cvc.value.length === 3)) {
+        cardInformationName.textContent = holderName.value
+        cardInformationNumber.textContent = inputCardNumber.value
+        cardInformationcardCVC.textContent = cvc.value
+        cardInformationExpiryDate.textContent = `${expriyMonth.value}/${expiryYear.value}`
+        myCardDetails.style.display = "none"
+        complete.style.display = "flex"
+    } else {
+        // HOLDERNAME VALIDATION
+        if (holderName.value.length < 6) {
+            errorNames.textContent = "Please enter your fullname!"
+        } else if(holderName.value.length > 32) {
+            errorNames.textContent = "Maximum character limit exceeded!" 
         } else {
-            if (textCardNumber.value !== "") {
-                // errorNumber.style.display = "block"
-                console.log("not empty")
-            } else {
-                // errorNumber.style.display = "none"
-                console.log("okay!")
-            }
+            errorNames.textContent = ""
         }
-      });
-}
+
+        // CARD NUMBER VALIDATION
+        if (inputCardNumber.value.length < 19) {
+            errorNumber.textContent = "Enter the complete 16digits on your card..."
+        } else if (inputCardNumber.value.length > 19) {
+            errorNumber.textContent = "Enter the 16digits on your card only."
+        } else {
+            errorNumber.textContent = ""
+        }
+
+        // MONTH VALIDATION
+        if (expriyMonth.value.length < 2) {
+            errorExpiry.textContent = "Invalid input!"
+        } else if (expriyMonth.value.length > 2) {
+            errorExpiry.textContent = "Should be 2digits only!"
+        } else {
+            errorExpiry.textContent = ""
+        }
+        // YEAR VALIDATION
+        if (expiryYear.value.length < 2) {
+            errorExpiry.textContent = "Invalid input!"
+        } else if (expiryYear.value.length > 2) {
+            errorExpiry.textContent = "Should be 2digits only!"
+        } else {
+            errorExpiry.textContent = ""
+        }
+
+        // CVC VALIDATION
+        if (cvc.value.length < 3) {
+            errorCVC.textContent = "Invalid input!"
+        } else if (cvc.value.length > 3) {
+            errorCVC.textContent = "Should be 3digits only."
+        } else {
+            errorCVC.textContent = ""
+        }
+
+    }
+})
